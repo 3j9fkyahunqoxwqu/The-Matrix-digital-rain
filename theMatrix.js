@@ -30,9 +30,10 @@ function resizeMatrixCanvas() {
     theMatrixCanvas.height = window.innerHeight;
     
     console.log("The canvas's new width is " + theMatrixCanvas.width);
-    console.log("Number of characters is: " + Math.floor(theMatrixCanvas.width / xIncrement));
+    var numCharacters = Math.floor(theMatrixCanvas.width / xIncrement) - 2;
+    console.log("Number of characters is: " + numCharacters);
     
-    yCoordinates = new Array(Math.floor(theMatrixCanvas.width / xIncrement)).join(0).split('');
+    yCoordinates = new Array(numCharacters).join(0).split('');
     
     // if we're about to re-start The Matrix, clear the previous timer
     if (timeoutID) {
@@ -44,9 +45,9 @@ function resizeMatrixCanvas() {
 
 function startTheMatrix() {
  
-    matrixContext.fillStyle = "rgba(0,0,0,0.5)";
+    matrixContext.fillStyle = "rgba(0,0,0,0.11)";
     matrixContext.fillRect(0, 0, theMatrixCanvas.width, theMatrixCanvas.height);
-    matrixContext.font = "30px sans-serif";
+    matrixContext.font = "29px sans-serif";
     matrixContext.fillStyle = "#0f0";
 
     yCoordinates.map(function (y, index) {
@@ -61,5 +62,5 @@ function startTheMatrix() {
     
     timeoutID = setTimeout(function () {
         requestAnimationFrame(startTheMatrix);
-    }, 1000 / 8);
+    }, 1000 / 22);
 }
