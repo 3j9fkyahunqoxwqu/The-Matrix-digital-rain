@@ -36,7 +36,7 @@ function resizeMatrixCanvas() {
     
     yCoordinates = new Array(numCharacters).join(0).split('');
     for (let i = 0; i < numCharacters; i++) {
-      yCoordinates[i] = Math.random() * -2000;
+      yCoordinates[i] = Math.random() * -4000;
     }
     
     // if we're about to re-start The Matrix, clear the previous timer
