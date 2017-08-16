@@ -21,10 +21,8 @@ function initMatrix() {
     resizeMatrixCanvas();
     
     //make sure the background is completely black at the start
-    /*
     matrixContext.fillStyle = "black";
     matrixContext.fillRect(0, 0, theMatrixCanvas.width, theMatrixCanvas.height);
-    */
 }
 
 function resizeMatrixCanvas() {
