@@ -1,7 +1,10 @@
 /*
- * Code inspired from http://www.arungudelli.com/2013/09/matrix-effect-using-html5-and-javascript.html
+ * Code inspired by http://www.arungudelli.com/2013/09/matrix-effect-using-html5-and-javascript.html
  *
  * by Andrew Golightly (support@andrewgolightly.com)
+ *
+ * Contributors:
+ *   Moonchild (moonchild@palemoon.org)
  */
 
 
@@ -34,6 +37,9 @@ function resizeMatrixCanvas() {
     console.log("Number of characters is: " + numCharacters);
     
     yCoordinates = new Array(numCharacters).join(0).split('');
+    for (let i = 0; i < numCharacters; i++) {
+      yCoordinates[i] = Math.random() * -2000;
+    }
     
     // if we're about to re-start The Matrix, clear the previous timer
     if (timeoutID) {
