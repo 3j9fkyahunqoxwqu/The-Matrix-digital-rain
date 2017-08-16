@@ -49,10 +49,10 @@ function resizeMatrixCanvas() {
 
 function startTheMatrix() {
  
-    matrixContext.fillStyle = "rgba(0,0,0,0.11)";
+    matrixContext.fillStyle = "rgba(0,0,0,0.08)";
     matrixContext.fillRect(0, 0, theMatrixCanvas.width, theMatrixCanvas.height);
     matrixContext.font = "29px sans-serif";
-    matrixContext.fillStyle = "#0f0";
+    matrixContext.fillStyle = "#1e1";
 
     yCoordinates.map(function (y, index) {
         var x = (index * xIncrement) + xIncrement;
@@ -60,7 +60,7 @@ function startTheMatrix() {
         if (y > theMatrixCanvas.height + Math.random()*1000) {
             yCoordinates[index] = 0;
         } else {
-            yCoordinates[index] = y + 10;
+            yCoordinates[index] = y + 15;
         }
     });
     
