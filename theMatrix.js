@@ -27,6 +27,13 @@ function initMatrix() {
 
 function resizeMatrixCanvas() {
 
+    // We're about to re-start The Matrix; clear the previous timer.
+    // We do this here to prevent a race on the timer, preventing it from
+    // firing during resize calculations and re-initialization of the array.
+    if (timeoutID) {
+        clearInterval(timeoutID);
+    }
+    
     theMatrixCanvas.width = window.innerWidth;
     theMatrixCanvas.height = window.innerHeight;
     
@@ -39,12 +46,11 @@ function resizeMatrixCanvas() {
       yCoordinates[i] = Math.random() * -4000;
     }
     
-    // if we're about to re-start The Matrix, clear the previous timer
-    if (timeoutID) {
-        clearTimeout(timeoutID);
-    }
-    
     startTheMatrix();
+    
+    timeoutID = setInterval(function () {
+        requestAnimationFrame(startTheMatrix);
+    }, 1000 / 22);
 }
 
 function startTheMatrix() {
@@ -71,7 +77,4 @@ function startTheMatrix() {
         }
     });
     
-    timeoutID = setTimeout(function () {
-        requestAnimationFrame(startTheMatrix);
-    }, 1000 / 22);
 }
