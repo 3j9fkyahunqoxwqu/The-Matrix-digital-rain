@@ -56,7 +56,14 @@ function startTheMatrix() {
 
     yCoordinates.map(function (y, index) {
         var x = (index * xIncrement) + xIncrement;
-        matrixContext.fillText(String.fromCharCode(0x30A0 + Math.random() * (0x30FF - 0x30A0 + 1)), x, y);
+        var charSetSelect = (Math.random() * 100);
+        if (charSetSelect < 70) {
+             matrixContext.fillText(String.fromCharCode(0x30A0 + Math.random() * (0x30FF - 0x30A0 + 1)), x, y);
+        } else if (charSetSelect < 80) {
+             matrixContext.fillText(String.fromCharCode(0xFF21 + Math.random() * (0xFF3A - 0xFF21 + 1)), x, y);
+        } else {
+             matrixContext.fillText(String.fromCharCode(0x0391 + Math.random() * (0x042F - 0x0391 + 1)), x, y);
+        }
         if (y > theMatrixCanvas.height + Math.random()*1000) {
             yCoordinates[index] = 0;
         } else {
