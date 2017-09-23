@@ -46,14 +46,14 @@ function resizeMatrixCanvas() {
       yCoordinates[i] = Math.random() * -4000;
     }
     
-    startTheMatrix();
+    processTheMatrix();
     
     timeoutID = setInterval(function () {
-        requestAnimationFrame(startTheMatrix);
+        requestAnimationFrame(processTheMatrix);
     }, 1000 / 22);
 }
 
-function startTheMatrix() {
+function processTheMatrix() {
  
     matrixContext.fillStyle = "rgba(0,0,0,0.08)";
     matrixContext.fillRect(0, 0, theMatrixCanvas.width, theMatrixCanvas.height);
